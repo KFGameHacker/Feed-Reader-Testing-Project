@@ -20,6 +20,12 @@ var allFeeds = [
     }, {
         name: 'Linear Digressions',
         url: 'http://feeds.feedburner.com/udacity-linear-digressions'
+    },{
+        name: '豆瓣南京',
+        url: 'https://rsshub.app/douban/event/hot/118159'
+    },{
+        name: '',
+        url: 'https://rsshub.app/douban/event/hot/118159'
     }
 ];
 
@@ -41,9 +47,12 @@ function init() {
  * which will be called after everything has run successfully.
  */
  function loadFeed(id, cb) {
+
+    //construct feed item
      var feedUrl = allFeeds[id].url,
          feedName = allFeeds[id].name;
 
+     //using ajax to get feed json data
      $.ajax({
        type: "POST",
        url: 'https://rsstojson.udacity.com/parseFeed',
